@@ -18,5 +18,3 @@ else:
         if cant>aux:
             break
         cant =+ 1
-
-        
