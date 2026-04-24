@@ -1,7 +1,7 @@
 def materias():
     cant=(int(input("How many subjects do you have?")))
     if cant<2 or cant>12:
-        print("You have more than the maximum or less than the minimum of subjects that you can have in one semester")
+        print("You have more than the maximum or less than the minimum of subjects that you can have in a semester")
     else:
         aux=0
         cant=aux+1
