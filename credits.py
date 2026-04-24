@@ -1,9 +1,9 @@
 import os
+from team import students
 
 # Clear screen
 os.system("cls")
 
-print("\t~~ MIEMBROS DE TRANZIT ~~")
-print("\n\tJustie Ariel Loya Martinez")
-print("\n\tJosue Caleb Escobedo Herrera")
-print("\n\tEric Gallo Gardea")
+print("\t~~ MIEMBROS DE TRANZIT ~~\n")
+for student in students:
+    print(f"\t{students[student]}\n")
