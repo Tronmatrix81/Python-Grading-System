@@ -1,13 +1,14 @@
 import os
-import studentsearch
+from pick import pick #Python library
+from studentsearch import search_for_student
+from extras import menuOptions
 from credits import print_credits
-menuCommands = ["1)\tSearch Student ID", "2)\tGrades and promedy", "3)\tNon-odrinary check", "4)\tCredits"]
-    
+
 def menu():
     os.system('cls')
     print("UACH Grading System")
-    for i in range(0, len(menuCommands)):
-        print(menuCommands[i])    
+    for i in range(0, len(menuOptions)):
+        print(menuOptions[i])    
 
     try:
         option = int(input("\nOption: "))
@@ -18,7 +19,7 @@ def menu():
     else:
         match option:
             case 1:
-                studentsearch.SearchForStudent()
+                search_for_student()
             case 2:
                 pass
             case 3:
@@ -30,4 +31,21 @@ def menu():
                 os.system("pause")
         menu()
 
-if __name__=="__main__": menu()
+def menu2():
+    title = "UACH Grading System"
+    indicator = ">" #This is the cursor
+    index = pick(menuOptions, title, indicator) #Gives two arguments (selected option and selected index)
+    match index[1]:
+        case 0:
+            search_for_student()
+        case 1:
+            pass
+        case 2:
+            pass
+        case 3:
+            print_credits()
+        case 4:
+            return
+    menu2()
+
+if __name__=="__main__": menu2()

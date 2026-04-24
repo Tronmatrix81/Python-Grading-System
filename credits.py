@@ -1,5 +1,5 @@
 import os
-from team import students
+from extras import students
 
 def print_credits():
     # Clear screen
