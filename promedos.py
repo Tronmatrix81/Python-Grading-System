@@ -5,18 +5,19 @@ aux1=0
 aux2=0
 queso=""
 nombres=(0,0)
-rep=0
-apro=0
+
 def saved(mat: int):
     studentsearch.FindStudent
     print("Insert your Student ID")
     matricula=int(input())
     print(studentsearch.FindStudent(matricula))
     aux1=matricula
-    print(aux1)
-    queso=students.get(aux1,"hola")
+    queso=students.get(aux1,"Student not found!")
     quesoo=queso
-
+    if queso == "Student not found!":
+        return
+    else:
+        promedio()
 def promedio():
     subjects=int(input("How many subjects do you have? "))
     aux2=subjects
@@ -31,7 +32,8 @@ def promedio():
         p2=int(input("What is the grade that you got in your second partial? "))
         p3=int(input("What is the grade that you got in your third partial? "))
         prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
-        
+        rep=0
+        apro=0
         print("Your average in ", materia," is: ", prom )
         if prom <7:
             rep+=1
@@ -39,9 +41,9 @@ def promedio():
         if prom <10 and prom >=7:
             apro+=1
             print("You have passed this subject!")
+        
 
 
             
 
 saved(mat=1)
-promedio()
