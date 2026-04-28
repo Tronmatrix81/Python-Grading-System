@@ -1,10 +1,2 @@
-def suma(uno, dos):
-    sum=uno+dos
-    return sum
-
-i=0
-while(True):
-    print(suma(10, 20))
-    if i>10:
-        break
-    i += 1
+mat = [[0,1],[2,3],[3,4]]
+print(mat[2][1])
