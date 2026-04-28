@@ -1,5 +1,15 @@
 from extras import students
 import studentsearch
-input("What is your Student ID?")
+matricula=0
+queso=0
+def saved(mat: int):
+    studentsearch.FindStudent
+    print("Insert your Student ID")
+    matricula=int(input())
+    print(studentsearch.FindStudent(matricula))
+    queso=matricula
+    print(queso)
 
-studentsearch.SearchForStudent()
+print(queso)
+
+saved(mat=1)
