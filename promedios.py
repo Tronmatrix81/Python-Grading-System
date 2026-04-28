@@ -8,10 +8,10 @@ nombres=(0,0)
 rep=0
 apro=0
 def saved(mat: int):
-    studentsearch.FindStudent
+    studentsearch.find_student
     print("Insert your Student ID")
     matricula=int(input())
-    print(studentsearch.FindStudent(matricula))
+    print(studentsearch.find_student(matricula))
     aux1=matricula
     print(aux1)
     queso=students.get(aux1,"hola")
