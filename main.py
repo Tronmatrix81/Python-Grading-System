@@ -20,10 +20,8 @@ def menu():
                 search_for_student()
             case 1:
                 saved(mat=1)
-
             case 2:
                 exam_check()
-                
             case 3:
                 print_credits()
             case 4:
