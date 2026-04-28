@@ -1,4 +1,5 @@
 import os
+from promedos import saved
 from pick import pick #Python library
 from studentsearch import search_for_student
 from exam_check import exam_check
@@ -17,9 +18,11 @@ def menu():
             case 0:
                 search_for_student()
             case 1:
-                pass
+                saved(mat=1)
+
             case 2:
                 exam_check()
+                
             case 3:
                 print_credits()
             case 4:
