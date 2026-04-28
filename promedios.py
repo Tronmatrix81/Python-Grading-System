@@ -32,7 +32,7 @@ def saved(mat: int):
 def promedio():
     try:
         opciones=["JUST ONE SUBJECT ","ALL SUBJECTS"]
-        os.system("cls")
+        
         title = "Do you want to calculate just one subject or all your subjects?"
         indicator = ">"
         index = pick(opciones, title, indicator)
