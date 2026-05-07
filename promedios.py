@@ -62,22 +62,22 @@ def promedio():
                         print("Incorrect grade")
                         os.system("pause")
                         continue
+                
+                    
+                    prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
+                    rep=0
+                    apro=0
                     for i in range(3):
-                        students[z]
-                        print(students[z])
-                        print(queso, "sadda")
-                        if students[z] == queso:
+                        
+                        if students[z] == queso: #nombrer=nombrer y con eso se esccribe por orden, matricula, nombre, parciales
                             write_cell(z+2,1,aux1)
                             write_cell(z+2,2,queso)
                             write_cell(z+2,3,p1)
                             write_cell(z+2,4,p2)
                             write_cell(z+2,5,p3)
+                            write_cell(z+2,5,promedio)
                             break
                         z+=1
-                    
-                    prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
-                    rep=0
-                    apro=0
                     print("Your average in ", materia," is: ", prom )
                     if prom <7:
                         rep+=1

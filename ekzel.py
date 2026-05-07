@@ -5,10 +5,11 @@ absolutePath=os.path.dirname(os.path.abspath(__file__)) # Find actual directory
 excelPath=os.path.join(absolutePath, "queso.xlsx") # Find directory's excel
 
 def open_excel():
-    global excelFile, excelPath, excelSheet
+    global excelFile, excelPath
 
     try:
         excelFile=openpyxl.load_workbook(excelPath)
+        
     except:
         print("Error: File doesn't exist or is already open.")
 
