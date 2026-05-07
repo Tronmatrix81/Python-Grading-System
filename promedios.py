@@ -59,23 +59,23 @@ def promedio():
                         os.system("pause")
                         continue
                     for i in range(3):
-                        list(students)[z+1]
+                        students[z]
                         
-                        if list(students)[z] == queso:
+                        if students[z] == queso:
                             write_cell(z+1,3,p1)
                             break
                         z+=1
                     for i in range(3):
-                        list(students)[z+1]
+                        students[z] 
                         
-                        if list(students)[z] == queso:
+                        if students[z] == queso:
                             write_cell(z+1,4,p2)
                             break
                         z+=1
                     for i in range(3):
-                        list(students)[z+1]
-                        
-                        if list(students)[z+1] == queso:
+                        students[z]
+
+                        if students[z] == queso:
                             write_cell(z+1,5,p3)
                             break
                         z+=1
