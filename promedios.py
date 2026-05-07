@@ -6,10 +6,12 @@ from ekzel import  write_cell
 matricula=0
 aux1=0
 aux2=0
-queso=""
+
 nombres=(0,0)
 
 def saved():
+    global queso
+    global aux1
     try:
         os.system("cls")
         studentsearch.find_student
@@ -19,6 +21,7 @@ def saved():
         aux1=matricula
         
         queso=students.get(aux1,"Student not found!")
+        print(queso)
         if queso == "Student not found!":
             
             os.system("pause")
@@ -27,8 +30,9 @@ def saved():
         print("Error: Incorrect character")
         os.system("pause")
     else:
+        aux1=str(matricula)
         promedio()
-
+    
 
 def promedio():
     try:
@@ -60,8 +64,11 @@ def promedio():
                         continue
                     for i in range(3):
                         students[z]
-                        
+                        print(students[z])
+                        print(queso, "sadda")
                         if students[z] == queso:
+                            write_cell(z+2,1,aux1)
+                            write_cell(z+2,2,queso)
                             write_cell(z+2,3,p1)
                             write_cell(z+2,4,p2)
                             write_cell(z+2,5,p3)
