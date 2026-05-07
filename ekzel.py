@@ -4,19 +4,15 @@ import openpyxl
 absolutePath=os.path.dirname(os.path.abspath(__file__)) # Find actual directory
 excelPath=os.path.join(absolutePath, "queso.xlsx") # Find directory's excel
 
-excelFile = ""
-excelSheet = ""
-
 def open_excel():
     global excelFile, excelPath, excelSheet
 
     try:
         excelFile=openpyxl.load_workbook(excelPath)
-        excelSheet=excelFile["promedio"]
     except:
         print("Error: File doesn't exist or is already open.")
 
-    return
+    return excelFile
 
 def write_excel():
     open_excel()
@@ -49,10 +45,14 @@ def write_excel():
 
 
 def write_cell(row:float, column:float, data:str):
-    global excelPath, excelSheet, excelFile
+    global excelPath
 
-    open_excel()#abre el archivo
+    excelFile=open_excel()#abre el archivo
+    excelSheet=excelFile["promedio"]
     excelSheet.cell(row, column, data)
     #celda segun row columna y el dato, ese es el orden pues
-    excelFile.save(excelPath)
 
+    try:
+        excelFile.save(excelPath)
+    except PermissionError:
+        print("Error: Excel file is currently open.")

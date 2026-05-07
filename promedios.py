@@ -136,14 +136,3 @@ def promedio():
     except ValueError:
         print("Error: Incorrect character")
         os.system("pause")
-                        
-                        
-                            
-                            
-
-
-            
-
-
-            
-
