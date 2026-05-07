@@ -62,25 +62,12 @@ def promedio():
                         students[z]
                         
                         if students[z] == queso:
-                            write_cell(z+1,3,p1)
+                            write_cell(z+2,3,p1)
+                            write_cell(z+2,4,p2)
+                            write_cell(z+2,5,p3)
                             break
                         z+=1
-                    for i in range(3):
-                        students[z] 
-                        
-                        if students[z] == queso:
-                            write_cell(z+1,4,p2)
-                            break
-                        z+=1
-                    for i in range(3):
-                        students[z]
-
-                        if students[z] == queso:
-                            write_cell(z+1,5,p3)
-                            break
-                        z+=1
-                        
-
+                    
                     prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
                     rep=0
                     apro=0
