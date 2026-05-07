@@ -1,4 +1,5 @@
 import os
+from ekzel import write_cell
 from extras import students
 
 def exam_check():
@@ -43,13 +44,14 @@ def exam_check():
     i=0
     while i<len(students):
 
-        approved=0
+        isApproved=0
         if ((subjectNumber[i][0]/2)+1)>(subjectNumber[i][1]):
-            approved=1
+            isApproved=1
 
-        decision= "has right" if approved==1 else "doesn't have right"
+        decision= "has right" if isApproved==1 else "doesn't have right"
 
         print(f"\n{students[list(students)[i]]} {decision} to take the exam")
+        write_cell(i+2, 7, decision)
         i += 1
 
     os.system("pause")
