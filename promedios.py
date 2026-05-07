@@ -2,13 +2,14 @@ import os
 from pick import pick
 from extras import students
 import studentsearch
+from ekzel import  write_cell
 matricula=0
 aux1=0
 aux2=0
 queso=""
 nombres=(0,0)
 
-def saved(mat: int):
+def saved():
     try:
         os.system("cls")
         studentsearch.find_student
@@ -40,6 +41,7 @@ def promedio():
         match index[1]:
             case 0:
                 while True:
+                    z=0
                     materia=input("What is the name of the subject that you want to calculate the average? ")
                     p1=int(input("What is the grade that you got in your first partial? "))
                     if p1 <0 or p1>10:
@@ -56,6 +58,29 @@ def promedio():
                         print("Incorrect grade")
                         os.system("pause")
                         continue
+                    for i in range(3):
+                        list(students)[z+1]
+                        
+                        if list(students)[z] == queso:
+                            write_cell(z+1,3,p1)
+                            break
+                        z+=1
+                    for i in range(3):
+                        list(students)[z+1]
+                        
+                        if list(students)[z] == queso:
+                            write_cell(z+1,4,p2)
+                            break
+                        z+=1
+                    for i in range(3):
+                        list(students)[z+1]
+                        
+                        if list(students)[z+1] == queso:
+                            write_cell(z+1,5,p3)
+                            break
+                        z+=1
+                        
+
                     prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
                     rep=0
                     apro=0

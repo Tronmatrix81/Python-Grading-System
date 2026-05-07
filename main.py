@@ -19,7 +19,7 @@ def menu():
             case 0:
                 search_for_student()
             case 1:
-                saved(mat=1)
+                saved()
             case 2:
                 exam_check()
             case 3:
