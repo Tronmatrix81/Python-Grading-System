@@ -1,6 +1,6 @@
 import os
 from pick import pick #Python library
-
+from ekzel import add_member, remove_member
 from promedios import saved
 from studentsearch import search_for_student
 from exam_check import exam_check
@@ -23,8 +23,14 @@ def menu():
             case 2:
                 exam_check()
             case 3:
-                print_credits()
+                add_member()
+                pass
             case 4:
+                remove_member()
+                pass
+            case 5:
+                print_credits()
+            case 6:
                 return
         menu()
 

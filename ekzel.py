@@ -57,3 +57,37 @@ def write_cell(row:float, column:float, data:str):
         excelFile.save(excelPath)
     except PermissionError:
         print("Error: Excel file is currently open.")
+
+def add_member():
+    global excelPath
+    os.system("cls")
+
+    excelFile=open_excel()
+    excelSheet=excelFile["promedio"]
+
+    print("~~Add member~~")
+    excelSheet.append(input("\nType matricula: "), input("Type name: "))
+
+    try:
+        excelFile.save(excelPath)
+    except PermissionError:
+        print("Error: Excel file is currently open.")
+
+    os.system("pause")
+
+def remove_member():
+    global excelPath
+    os.system("cls")
+
+    excelFile=open_excel()
+    excelSheet=excelFile["promedio"]
+
+    print("~~Remove member~~")
+    excelSheet.append(input("\nType matricula: "), input("Type name: "))
+
+    try:
+        excelFile.save(excelPath)
+    except PermissionError:
+        print("Error: Excel file is currently open.")
+
+    os.system("pause")
