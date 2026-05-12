@@ -31,7 +31,7 @@ def menu():
             case 5:
                 print_credits()
             case 6:
-                return
+                exit()
         menu()
 
 if __name__=="__main__": menu()

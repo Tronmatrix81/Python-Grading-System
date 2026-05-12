@@ -18,7 +18,11 @@ def open_excel():
 def write_excel():
     open_excel()
 
+def add_member():
+    return
 
+def remove_member():
+    return
 
 
 
