@@ -58,7 +58,7 @@ def add_member(name: str, id: str):
     global excelPath
 
     excelFile=open_excel()
-    excelSheet=excelFile.active
+    excelSheet=excelFile["promedio"]
     #maxColumns = excelSheet.max_column
     maxRows = excelSheet.max_row
 
@@ -86,7 +86,7 @@ def remove_member(name: str):
     global excelPath
 
     excelFile=open_excel()
-    excelSheet=excelFile.active
+    excelSheet=excelFile["promedio"]
     #maxColumns = excelSheet.max_column
     maxRows = excelSheet.max_row
 
