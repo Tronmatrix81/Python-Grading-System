@@ -17,9 +17,9 @@ def open_excel():
 
     return excelFile
 
-def read_cell(row:int, column:int):
+def read_cell(sheet:str, row:int, column:int):
         excelFile=open_excel()
-        excelSheet=excelFile.active
+        excelSheet=excelFile[sheet]
 
         return excelSheet.cell(row, column).value
 

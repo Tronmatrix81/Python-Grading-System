@@ -8,7 +8,7 @@ def print_credits():
 
     print("~~ MIEMBROS DE TRANZIT ~~\n")
     for i in range(3):
-            print(f"  > {read_cell(i+2, 2)}")
+            print(f"  > {read_cell('credits', i+2, 1)}")
 
     print()
     os.system("pause")
