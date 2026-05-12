@@ -7,16 +7,6 @@ def print_credits():
     os.system("cls")
 
     print("~~ MIEMBROS DE TRANZIT ~~\n")
-    for id in students:
-        print(f"  > {students[id]}")
-
-    print()
-    os.system("pause")
-
-def print_credits1():
-    os.system("cls")
-
-    print("~~ MIEMBROS DE TRANZIT ~~\n")
     for i in range(3):
             print(f"  > {read_cell(i+2, 2)}")
 
