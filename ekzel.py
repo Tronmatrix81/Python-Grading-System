@@ -17,6 +17,12 @@ def open_excel():
 
     return excelFile
 
+def read_cell(row:int, column:int):
+        excelFile=open_excel()
+        excelSheet=excelFile.active
+
+        return excelSheet.cell(row, column).value
+
 def write_excel():
     open_excel()
 
@@ -30,7 +36,7 @@ def write_cell(row:float, column:float, data:str):
     global excelPath
 
     excelFile=open_excel()#abre el archivo
-    excelSheet=excelFile["promedio"]
+    excelSheet=excelFile.active
     excelSheet.cell(row, column, data)
     #celda segun row columna y el dato, ese es el orden pues
 

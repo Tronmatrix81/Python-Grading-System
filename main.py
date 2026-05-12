@@ -5,7 +5,7 @@ from promedios import saved
 from studentsearch import search_for_student
 from exam_check import exam_check
 from extras import menu_options
-from credits import print_credits
+from credits import print_credits1
 
 def menu():
     title = "~~UACH Grading System~~"
@@ -29,10 +29,12 @@ def menu():
                 remove_member_ui()
                 pass
             case 5:
-                print_credits()
+                print_credits1()
             case 6:
                 os.system('cls')
-                exit()
+                if input("Are you sure you want to exit? (y/n): ").strip().lower() == 'y':
+                    print("See you later!")
+                    exit()
         menu()
 
 if __name__=="__main__": menu()
