@@ -66,19 +66,40 @@ def add_member(name: str, id: str):
 
     os.system("pause")
 
-def remove_member():
-    global excelPath
+def remove_member_ui():
     os.system("cls")
 
-    excelFile=open_excel()
-    excelSheet=excelFile["promedio"]
-
     print("~~Remove member~~")
-    excelSheet.append(input("\nType matricula: "), input("Type name: "))
 
-    try:
-        excelFile.save(excelPath)
-    except PermissionError:
-        print("Error: Excel file is currently open.")
+    name = input("Type student name: ")
+    remove_member(name)
+    
 
-    os.system("pause")
+
+def remove_member(name: str):
+    global excelPath
+
+    excelFile=open_excel()
+    excelSheet=excelFile.active
+    #maxColumns = excelSheet.max_column
+    maxRows = excelSheet.max_row
+
+    lineToRemove = -1 #default value 
+
+    for i in range(2, maxRows + 1):
+        cellX = excelSheet.cell(row=i, column=nameColumn).value
+
+        if (cellX == name):
+            lineToRemove = i
+    
+    if (lineToRemove != -1):
+        excelSheet.delete_rows(lineToRemove, 1)
+
+        try:
+            excelFile.save(excelPath)
+        except PermissionError:
+            print("Error: Excel file is currently open.")
+    else:
+        print("Student not found!")
+
+    os.system("pause")    
