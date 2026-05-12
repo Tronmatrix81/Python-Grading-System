@@ -6,8 +6,8 @@ def print_credits():
     os.system("cls")
 
     print("~~ MIEMBROS DE TRANZIT ~~\n")
-    for student in students:
-        print(f"  > {students[student]}")
+    for id in students:
+        print(f"  > {students[id]}")
 
     print()
     os.system("pause")

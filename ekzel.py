@@ -3,6 +3,8 @@ import openpyxl
 
 absolutePath=os.path.dirname(os.path.abspath(__file__)) # Find actual directory
 excelPath=os.path.join(absolutePath, "queso.xlsx") # Find directory's excel
+idColumn = 1
+nameColumn = 2
 
 def open_excel():
     global excelFile, excelPath
@@ -18,36 +20,11 @@ def open_excel():
 def write_excel():
     open_excel()
 
-def add_member():
-    return
-
-def remove_member():
-    return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #excelpath es ela rchivo
 #excelsheet es la hoja
 #excelfile es el cos carpeta
 #eso no impporta
-
 
 def write_cell(row:float, column:float, data:str):
     global excelPath
@@ -62,15 +39,25 @@ def write_cell(row:float, column:float, data:str):
     except PermissionError:
         print("Error: Excel file is currently open.")
 
-def add_member():
+def add_member_ui():
+    print("~~Add member~~")
+
+    name = input("Type name: ")
+    id = input("Type matricula: ")
+
+    add_member(name, id)
+   
+
+def add_member(name: str, id: str):
     global excelPath
-    os.system("cls")
 
     excelFile=open_excel()
-    excelSheet=excelFile["promedio"]
+    excelSheet=excelFile.active
+    #maxColumns = excelSheet.max_column
+    maxRows = excelSheet.max_row
 
-    print("~~Add member~~")
-    excelSheet.append(input("\nType matricula: "), input("Type name: "))
+    excelSheet.cell(row= maxRows + 1, column=nameColumn, value=name) #Assign the values to the cells
+    excelSheet.cell(row= maxRows + 1, column=idColumn, value=id) #Assign the values to the cells
 
     try:
         excelFile.save(excelPath)
