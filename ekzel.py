@@ -1,10 +1,14 @@
 import os
 import openpyxl
+from colorama import Fore, Back, Style, init
+
+init(convert=True)
 
 absolutePath=os.path.dirname(os.path.abspath(__file__)) # Find actual directory
 excelPath=os.path.join(absolutePath, "queso.xlsx") # Find directory's excel
 idColumn = 1
 nameColumn = 2
+print(Fore.WHITE, Back.BLUE, "tes")
 
 def open_excel():
     global excelFile, excelPath
@@ -76,7 +80,24 @@ def add_member(name: str, id: str):
 
     os.system("pause")
 
-def FindStudent(name: str):
+
+def search_for_student(): 
+    os.system("cls")
+    print("Type in a student name: ")
+    name = input()
+    student = FindStudent(name)
+    if (student != ""):
+        os.system('cls')
+        print("~Student Credentials~")
+        print(student)
+        os.system('pause')
+    else:
+        print("Student not found! Would you like to add him/her to the team? [Y/N]")
+        if input().strip().lower() == "y":
+            os.system('cls')
+            add_member_ui()
+
+def FindStudent(name: str) -> str:
     global excelPath
 
     excelFile=open_excel()
@@ -86,11 +107,10 @@ def FindStudent(name: str):
 
     for i in range(2, maxRows + 1):
         cellX = excelSheet.cell(i, nameColumn).value
-        if (cellX == name):
+        if (cellX.upper() == name.upper()):
             id = excelSheet.cell(i, idColumn).value
-            return {id: name}
-        
-#def find_student_ui():
+            return f"{name.upper()}: {id}"
+    return ""
 
 
 def remove_member_ui():

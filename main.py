@@ -1,6 +1,7 @@
 import os
 from pick import pick #Python library
 from ekzel import add_member_ui, remove_member_ui
+import ekzel
 from promedios import saved
 from studentsearch import search_for_student
 from exam_check import exam_check
@@ -18,7 +19,7 @@ def menu():
         os.system('cls')
         match index[1]:
             case 0:
-                search_for_student()
+                ekzel.search_for_student()
             case 1:
                 saved()
             case 2:
@@ -33,7 +34,7 @@ def menu():
                 print_credits()
             case 6:
                 os.system('cls')
-                if input("Are you sure you want to exit? (y/n): ").strip().lower() == 'y':
+                if input("Are you sure you want to exit? [Y/N]: ").strip().lower() == 'y':
                     print("See you later!")
                     exit()
         menu()
