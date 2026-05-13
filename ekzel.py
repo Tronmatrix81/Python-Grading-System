@@ -44,7 +44,11 @@ def add_member_ui():
 
     add_member(name, id)
    
-
+def conteo()->int:
+    excelFile=open_excel()
+    excelSheet=excelFile["promedio"]
+    reng=excelSheet.max_row
+    return int(reng)
 def add_member(name: str, id: str):
     global excelPath
 
