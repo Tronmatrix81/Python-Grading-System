@@ -3,6 +3,7 @@ from pick import pick
 from extras import students
 import studentsearch
 from ekzel import  write_cell
+from ekzel import read_cell
 matricula=0
 aux1=0
 aux2=0
@@ -47,54 +48,57 @@ def promedio():
                 while True:
                     z=0
                     materia=input("What is the name of the subject that you want to calculate the average? ")
-                    p1=int(input("What is the grade that you got in your first partial? "))
-                    if p1 <0 or p1>10:
-                        print("Incorrect grade")
+                    def parcial():
+                        p1=int(input("What is the grade that you got in your first partial? "))
+                        if p1 <0 or p1>10:
+                            print("Incorrect grade")
+                            os.system("pause")
+                            continue
+                        p2=int(input("What is the grade that you got in your second partial? "))
+                        if p2 <0 or p2>10:
+                            print("Incorrect grade")
+                            os.system("pause")
+                            continue
+                        p3=int(input("What is the grade that you got in your third partial? "))
+                        if p3 <0 or p3>10:
+                            print("Incorrect grade")
+                            os.system("pause")
+                            continue
+                        prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
+                        rep=0
+                        apro=0
+                        print("Your average in ", materia," is: ", prom )
+                        if prom <7:
+                            rep+=1
+                            print("You have failed this subject")
+                            os.system("pause")
+                        if prom <10 and prom >=7:
+                            apro+=1
+                            print("You have passed this subject!")
+                            os.system("pause")
+                        if prom >10:
+                            print("Thats too much score man, we cant accept it")
+                            os.system("pause")
+                        if prom <0:
+                            print("Good luck next time bro")
+                            os.system("pause")
                         os.system("pause")
-                        continue
-                    p2=int(input("What is the grade that you got in your second partial? "))
-                    if p2 <0 or p2>10:
-                        print("Incorrect grade")
-                        os.system("pause")
-                        continue
-                    p3=int(input("What is the grade that you got in your third partial? "))
-                    if p3 <0 or p3>10:
-                        print("Incorrect grade")
-                        os.system("pause")
-                        continue
+                        break
+                        return
                 
-                    
-                    prom=((p1*0.3)+(p2*0.3)+(p3*0.4))
-                    rep=0
-                    apro=0
-                    for i in range(3):
+                    for i in range(5):
                         
-                        if students[z] == queso: #nombrer=nombrer y con eso se esccribe por orden, matricula, nombre, parciales
-                            write_cell(z+2,1,aux1)
-                            write_cell(z+2,2,queso)
-                            write_cell(z+2,3,p1)
-                            write_cell(z+2,4,p2)
-                            write_cell(z+2,5,p3)
-                            write_cell(z+2,5,promedio)
+                        if read_cell("promedios",z+1,1) == 0: 
+                            parcial()
+                            write_cell(z+1,3,p1)
+                            write_cell(z+1,4,p2)
+                            write_cell(z+1,5,p3)
+                            write_cell(z+1,6,prom)
+                        else:
+                            xd=0
                             break
                         z+=1
-                    print("Your average in ", materia," is: ", prom )
-                    if prom <7:
-                        rep+=1
-                        print("You have failed this subject")
-                        os.system("pause")
-                    if prom <10 and prom >=7:
-                        apro+=1
-                        print("You have passed this subject!")
-                        os.system("pause")
-                    if prom >10:
-                        print("Thats too much score man, we cant accept it")
-                        os.system("pause")
-                    if prom <0:
-                        print("Good luck next time bro")
-                        os.system("pause")
-                    os.system("pause")
-                    break
+                    
 
             case 1:  #necesito total reprobadas, aprobadas y total de materias en dif variables
                 subjects=int(input("How many subjects do you have in total?"))
