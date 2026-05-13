@@ -15,6 +15,7 @@ def menu():
     except KeyboardInterrupt:
         print("Program interrupted")
     else:
+        os.system('cls')
         match index[1]:
             case 0:
                 search_for_student()

@@ -41,7 +41,7 @@ def promedio():
         indicator = ">"
         index = pick(opciones, title, indicator)
        
-
+        os.system('cls')
         match index[1]:
             case 0:
                 while True:

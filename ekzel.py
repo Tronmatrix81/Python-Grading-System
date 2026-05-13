@@ -53,15 +53,45 @@ def add_member(name: str, id: str):
     #maxColumns = excelSheet.max_column
     maxRows = excelSheet.max_row
 
-    excelSheet.cell(row= maxRows + 1, column=nameColumn, value=name) #Assign the values to the cells
-    excelSheet.cell(row= maxRows + 1, column=idColumn, value=id) #Assign the values to the cells
+    numberOfStudents = maxRows - 1 #We remove the first line cause its for headers
 
-    try:
-        excelFile.save(excelPath)
-    except PermissionError:
-        print("Error: Excel file is currently open.")
+    if numberOfStudents < 5:
+
+        for i in range(2, maxRows + 1):
+            cellX = excelSheet.cell(row=i, column=nameColumn).value
+            if (cellX == name):
+                print("Student already registered!")
+                os.system("pause")
+                return
+
+        excelSheet.cell(row= maxRows + 1, column=nameColumn, value=name) #Assign the values to the cells
+        excelSheet.cell(row= maxRows + 1, column=idColumn, value=id) #Assign the values to the cells
+
+        try:
+            excelFile.save(excelPath)
+        except PermissionError:
+            print("Error: Excel file is currently open.")
+    else:
+        print("Number of students are at maximum capacity.")
 
     os.system("pause")
+
+def FindStudent(name: str):
+    global excelPath
+
+    excelFile=open_excel()
+    excelSheet=excelFile["promedio"]
+    #maxColumns = excelSheet.max_column
+    maxRows = excelSheet.max_row
+
+    for i in range(2, maxRows + 1):
+        cellX = excelSheet.cell(i, nameColumn).value
+        if (cellX == name):
+            id = excelSheet.cell(i, idColumn).value
+            return {id: name}
+        
+#def find_student_ui():
+
 
 def remove_member_ui():
     os.system("cls")
@@ -81,22 +111,27 @@ def remove_member(name: str):
     #maxColumns = excelSheet.max_column
     maxRows = excelSheet.max_row
 
+    numberOfStudents = maxRows - 1 #We remove the headers
+
     lineToRemove = -1 #default value 
 
-    for i in range(2, maxRows + 1):
-        cellX = excelSheet.cell(row=i, column=nameColumn).value
-
-        if (cellX == name):
-            lineToRemove = i
-    
-    if (lineToRemove != -1):
-        excelSheet.delete_rows(lineToRemove, 1)
-
-        try:
-            excelFile.save(excelPath)
-        except PermissionError:
-            print("Error: Excel file is currently open.")
+    if (numberOfStudents == 1):
+        print("Cannot remove any more students! At least one student is required.")
     else:
-        print("Student not found!")
+        for i in range(2, maxRows + 1):
+            cellX = excelSheet.cell(row=i, column=nameColumn).value
+
+            if (cellX == name):
+                lineToRemove = i
+        
+        if (lineToRemove != -1):
+            excelSheet.delete_rows(lineToRemove, 1)
+
+            try:
+                excelFile.save(excelPath)
+            except PermissionError:
+                print("Error: Excel file is currently open.")
+        else:
+            print("Student not found!")
 
     os.system("pause")    
