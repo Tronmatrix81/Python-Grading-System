@@ -4,9 +4,9 @@ from ekzel import add_member_ui, remove_member_ui
 import ekzel
 from promedios import saved
 from studentsearch import search_for_student
-from exam_check import exam_check
 from extras import menu_options
 from credits import print_credits
+from exam_check import exam_check_v2
 
 def menu():
     title = "~~UACH Grading System~~"
@@ -23,7 +23,7 @@ def menu():
             case 1:
                 saved()
             case 2:
-                exam_check()
+                exam_check_v2()
             case 3:
                 add_member_ui()
                 pass

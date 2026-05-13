@@ -48,7 +48,11 @@ def add_member_ui():
 
     add_member(name, id)
    
-
+def conteo()->int:
+    excelFile=open_excel()
+    excelSheet=excelFile["promedio"]
+    reng=excelSheet.max_row
+    return int(reng)
 def add_member(name: str, id: str):
     global excelPath
 
@@ -154,4 +158,16 @@ def remove_member(name: str):
         else:
             print("Student not found!")
 
-    os.system("pause")    
+    os.system("pause")
+
+def max_column(sheet:str):
+    excelFile=open_excel()
+    excelSheet=excelFile[sheet]
+
+    return excelSheet.max_column
+
+def max_row(sheet:str):
+    excelFile=open_excel()
+    excelSheet=excelFile[sheet]
+
+    return excelSheet.max_row
