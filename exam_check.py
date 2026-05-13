@@ -132,6 +132,6 @@ def exam_check_v2():
     os.system("cls")
     for i in range(len(students)):
         print(f"\n{students[i][0]} {students[i][1]} to take the exam.")
-    
+        write_cell(i+2, 8, students[i][1])
+
     os.system("pause")
-    input()
