@@ -134,4 +134,16 @@ def remove_member(name: str):
         else:
             print("Student not found!")
 
-    os.system("pause")    
+    os.system("pause")
+
+def max_column(sheet:str):
+    excelFile=open_excel()
+    excelSheet=excelFile[sheet]
+
+    return excelSheet.max_column
+
+def max_row(sheet:str):
+    excelFile=open_excel()
+    excelSheet=excelFile[sheet]
+
+    return excelSheet.max_row
